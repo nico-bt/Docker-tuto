@@ -4,11 +4,13 @@ FROM node:17-alpine
 # Working directory image, los comandos que corran despues (ej npm install) usan esto como root
 WORKDIR /app
 
+# Para aprovechar layer chaching, así cada vez que cambiamos src code en app no instala dependencies de nuevo al cuete
+COPY package.json .
+
+RUN npm install
+
 # copia source files copy [origen] [destino]
 COPY . .
-
-# instala dependencies del package.json
-RUN npm install
 
 # Expone el port que usa la API
 EXPOSE 4000

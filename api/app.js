@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
       id: "3",
       title: "Show Review: Last of us",
     },
+    {
+      id: "4",
+      title: "Show Review: 24",
+    },
   ]);
 });
 
