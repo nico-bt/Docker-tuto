@@ -2,6 +2,7 @@
 # Pueden configurarse volumes (mapear archivos/carpetas para seguir cambios) --> Arrancar la api con nodemon en el dockerfile
 # Para correr, en root, por encima de todos los proyectos:
 # docker compose up
+# docker compose down
 
 version: "2.15.1"
 services:
@@ -13,3 +14,13 @@ services:
     volumes:
       - ./api:/app #[folder in proyect]:[folder in container] las mapea para seguir cambios
       - /app/node_modules #En este caso independiza los node_modules en el container para evitar que se borren con mapeo
+  frontend:
+    build: ./frontend
+    container_name: react-front_c
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true

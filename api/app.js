@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
       id: "5",
       title: "Show Review: Los Super Campeones",
     },
+    {
+      id: "6",
+      title: "Show Review: Dragon Ball Z",
+    },
   ]);
 });
 
