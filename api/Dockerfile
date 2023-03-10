@@ -17,7 +17,7 @@ EXPOSE 4000
 
 # Comandos a correr cuando creemos un container (una instancia a partir de esta imagen)
 # En este caso iniciar la app
-CMD ["node", "app.js"]
+CMD ["npm", "run", "dev"]
 
 # Comando para construir la image, en la terminal en directorio donde está el Dockerfile:
 # docker build -t name_of_image .

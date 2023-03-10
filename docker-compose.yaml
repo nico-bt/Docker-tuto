@@ -1,0 +1,15 @@
+# Crea imagenes y containers de varios proyectos (services)
+# Pueden configurarse volumes (mapear archivos/carpetas para seguir cambios) --> Arrancar la api con nodemon en el dockerfile
+# Para correr, en root, por encima de todos los proyectos:
+# docker compose up
+
+version: "2.15.1"
+services:
+  api:
+    build: ./api #Relative path al Dockerfile para crear la image
+    container_name: api_c
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api:/app #[folder in proyect]:[folder in container] las mapea para seguir cambios
+      - /app/node_modules #En este caso independiza los node_modules en el container para evitar que se borren con mapeo
